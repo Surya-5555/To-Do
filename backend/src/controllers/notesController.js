@@ -16,7 +16,6 @@ export function createNote(req , res) {
     res.status(201).json({ message: "Note created successfully" });//201 => New resource created
 }
 
-
 export function updateNote(req , res) {
     // Update a note
     res.status(200).json({ message: "Note updated successfully" });//201 => New resource created
