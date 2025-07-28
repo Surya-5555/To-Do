@@ -10,6 +10,7 @@ connectDB(); // Connect to MongoDB
 app.use("/api/notes" , notesRoutes); // Use the notes routes
 
 
+
 app.listen(5001 , () => {
     console.log("Server is running on port 5001");
 })
