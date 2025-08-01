@@ -3,6 +3,7 @@ import express from "express"; // => Change type to module in package.json
 import notesRoutes from "./routes/notesRoutes.js"; // Import the notes routes
 import {connectDB} from "./config/db.js"; // MONGO DB Connection
 import dotenv from "dotenv"; 
+import rateLimiter from "./middleware/reteLimiter.js";
 dotenv.config();
 
 
@@ -14,6 +15,8 @@ connectDB(); // Connect to MongoDB
 
 //middleware
 app.use(express.json());
+app.use(rateLimiter);// call our middleware
+
 // app.use((req , res , next) => {
 //     console.log(`${req.method} request for ${req.url}`);
 //     next();
