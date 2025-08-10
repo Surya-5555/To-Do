@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 const PORT  = process.env.PORT || 5001; 
 
-connectDB(); // Connect to MongoDB
+// connectDB(); // Connect to MongoDB
 
 
 //middleware
@@ -25,9 +25,10 @@ app.use(rateLimiter);// call our middleware
 app.use("/api/notes" , notesRoutes); // Use the notes routes
 
 
-
-app.listen(PORT , () => {
+connectDB().then(() => {
+    app.listen(PORT , () => {
     console.log(`Server is running on port ${PORT}`);
+})
 })
 
 
