@@ -1,8 +1,5 @@
 import Note from "../models/Note.js"; 
 
-
-
-
 // export const getAllNotes = (req , res) =>{
 //     // Send the notes
 //     res.status(200).send("You just fetched the notes");
@@ -58,8 +55,6 @@ export async function createNote(req , res) {
 }
 
 
-
-
 export async function updateNote(req , res) {
     // Update a note
     try {
@@ -74,8 +69,6 @@ export async function updateNote(req , res) {
         res.status(500).json({message:"internal server error"});
     }
 };
-
-
 
 
 export async function deleteNote(req , res) {

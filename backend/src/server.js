@@ -15,6 +15,7 @@ const PORT  = process.env.PORT || 5001;
 
 //middleware
 app.use(express.json());
+
 app.use(rateLimiter);// call our middleware
 
 // app.use((req , res , next) => {
