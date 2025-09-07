@@ -15,3 +15,5 @@
 15. Navigate to cluster - browse collection in DB
 16. npm install mongoose@latest
 17. npm i dotenv
+18. Upstash.js
+19. rateLimitter.js
