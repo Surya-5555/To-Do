@@ -12,3 +12,6 @@ npm i daisyui@4.12.24 -D  --> For components
 daisyui:{
     themes:["forest"],
   }  --> Put it in tailwind config
+
+ npm i lucide-react
+ npm i axios
