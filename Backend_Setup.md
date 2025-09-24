@@ -18,3 +18,4 @@
 18. npm i @upstash/ratelimit@2.0.5 @upstash/redis@1.34.9
 19. Upstash.js
 20. RateLimit.js
+21. npm i cors --> for connecting backend and frontend
