@@ -13,5 +13,6 @@ daisyui:{
     themes:["forest"],
   }  --> Put it in tailwind config
 
- npm i lucide-react
+npm i lucide-react
  npm i axios
+ git reset HEAD~1 --> to unstage the commit 
