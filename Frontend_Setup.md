@@ -16,3 +16,4 @@ daisyui:{
 npm i lucide-react
  npm i axios
  git reset HEAD~1 --> to unstage the commit 
+ npm install tailwindcss @tailwindcss/vite
