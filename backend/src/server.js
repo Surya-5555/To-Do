@@ -5,23 +5,27 @@ import dotenv from "dotenv";
 import notesRoutes from "./routes/notesRoutes.js"; // Import the notes routes
 import {connectDB} from "./config/db.js"; // MONGO DB Connection
 import rateLimiter from "./middleware/reteLimiter.js";
-
+import path from "path"
 
 dotenv.config();
 
 
 const app = express();
 const PORT  = process.env.PORT || 5001; 
+const __dirname = path.resolve()
 
 // connectDB(); // Connect to MongoDB
 
 
 //middleware
-app.use(cors
+if(process.env.NODE_ENV !== "production"){
+    app.use(cors
     ({
     origin:"http://localhost:5173",
     })
 );
+}
+
 app.use(express.json());
 app.use(rateLimiter);// call our middleware
 
@@ -33,6 +37,12 @@ app.use(rateLimiter);// call our middleware
 
 app.use("/api/notes" , notesRoutes); // Use the notes routes
 
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static(path.join(__dirname , "../frontend/dist"))) // Put a path for frontend dist folder
+    app.get("*" , (req , res) => {
+        res.sendFile(path.join(__dirname , "../frontend" , "dist" , "index.html")) // Any other request except our notes
+    })
+}
 
 connectDB().then(() => {
     app.listen(PORT , () => {

@@ -32,5 +32,4 @@ fullstack-to-do/
 │   └── Frontend_Setup.md
 │
 ├── .gitignore
-├── FolderStruct.md
-└── README.md
+└── FolderStruct.md
