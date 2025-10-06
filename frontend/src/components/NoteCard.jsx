@@ -5,7 +5,7 @@ import api from "../lib/axios.js"
 import toast from "react-hot-toast"
 
 
-export const NoteCard = ({ note , setNotes }) => {
+export const NoteCard = ({ note , setNotes }) => { // Sent from home page
 
   const handleDelete = async (e , id) => {
     e.preventDefault();// it will prevent the default "link" navigating behaviour of the button
