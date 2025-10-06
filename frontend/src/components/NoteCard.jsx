@@ -3,6 +3,11 @@ import { Link } from "react-router";
 import { formatDate } from "../lib/utils";
 
 export const NoteCard = ({ note }) => {
+
+  const handleDelete = async (e , id) => {
+    e.preventDefault();// it will prevent the default link navigating behaviour of the button
+  }
+
   return (
     <Link
       to={`/note/${note._id}`}
@@ -21,7 +26,7 @@ export const NoteCard = ({ note }) => {
 
           <div className="flex items-center gap-1">
             <PenSquareIcon className="size-4" />
-            <button className="btn btn-ghost btn-xs text-error">
+            <button className="btn btn-ghost btn-xs text-error" onClick={(e) => handleDelete(e , note._id)}>
               <Trash2Icon className="size-4" />
             </button>
           </div>
