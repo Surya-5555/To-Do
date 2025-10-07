@@ -50,4 +50,3 @@ connectDB().then(() => {
 })
 })
 
-
