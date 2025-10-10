@@ -1,10 +1,14 @@
 import express from "express"; // => Change type to module in package.json
 import cors from "cors";
 import dotenv from "dotenv"; 
-// const express = require("express"); => Change type to commonjs in package.json 
+// const express = require("express"); => Change type to commonjs in package.json
+
 import notesRoutes from "./routes/notesRoutes.js"; // Import the notes routes
+
 import {connectDB} from "./config/db.js"; // MONGO DB Connection
-import rateLimiter from "./middleware/reteLimiter.js";
+import rateLimiter from "./middleware/reteLimiter.js"; // Rate Limiting
+
+//For production
 import path from "path"
 
 dotenv.config();
@@ -12,6 +16,7 @@ dotenv.config();
 
 const app = express();
 const PORT  = process.env.PORT || 5001; 
+
 const __dirname = path.resolve()
 
 // connectDB(); // Connect to MongoDB
@@ -26,7 +31,8 @@ if(process.env.NODE_ENV !== "production"){
 );
 }
 
-app.use(express.json());
+// app.use() --> To add middleware
+app.use(express.json()); // Without express.json(), Express cannot understand JSON in req.body
 app.use(rateLimiter);// call our middleware
 
 

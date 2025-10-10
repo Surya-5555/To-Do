@@ -17,6 +17,6 @@ const noteSchema = new mongoose.Schema({
 { timestamps:true} // createdat and updatedat fields
 )
 
-const Note = mongoose.model("Note" , noteSchema)
+const Note = mongoose.model("Note" , noteSchema)  // A model is like a class for documents. // It connects the schema to a MongoDB collection
 
 export default Note;
